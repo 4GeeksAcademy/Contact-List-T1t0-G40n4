@@ -7,27 +7,34 @@ import {useState } from "react";
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer();
-	const  [contacto, setContacto]  = useState ([]);
 
 	useEffect(() =>{
 		const loadContacts = async () =>{
-			await fetch ('https://playground.4geeks.com/contact/agendas/Tito/contacts',{
+			const resp = await fetch ('https://playground.4geeks.com/contact/agendas/Tito/contacts',{
 					method: 'GET',
 			})
 			const data = await resp.json();
-			setContacto(data.contacts)
+			dispatch({
+				type:'load_contact',
+				payload:{
+					contactos:data.contacts
+					
+				}
+				
+			})
+			
 		}
 		loadContacts();
 	},[])
-
+		console.log(store.contactos)
 	return (
 		<div className="text-center mt-5">
 			<h1>Lista de Conctactos</h1>
-			<div className="d-flex justify-content-center">
+			<div className="d-flex flex-column justify-content-center align-items-center">
 				{
-					contacto.map(()=>{
-					<Contacto key={contacto._id} name={''}  address={''} telephone={''} email={''} photo={''} onEdit={()=>{} } onDelete={()=>{}}/>	
-					})
+					store.contactos.map((contactos)=>(
+					<Contacto key={contactos._id} name={contactos.name}  address={contactos.address} telephone={contactos.telephone} email={''} photo={''} onEdit={()=>{} } onDelete={()=>{}}/>	
+					))
 				}
 				
 			</div>
