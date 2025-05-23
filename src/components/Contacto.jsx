@@ -1,5 +1,3 @@
-
-
 export const Contacto = ({name, address, telephone, email, photo , onEdit, onDelete}) => {
 
     return (

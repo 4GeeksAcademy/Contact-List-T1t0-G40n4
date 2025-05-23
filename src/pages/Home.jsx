@@ -1,12 +1,15 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { Contacto } from "../components/Contacto.jsx";
+import { EditContact } from "./EditContact.jsx";
 import { Formulario } from "../components/Formulario.jsx";
 import { useEffect } from "react";
 import {useState } from "react";
+import { useNavigate } from "react-router-dom";
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer();
+	const navigate = useNavigate();
 
 	useEffect(() =>{
 		const loadContacts = async () =>{
@@ -33,7 +36,7 @@ export const Home = () => {
 			<div className="d-flex flex-column justify-content-center align-items-center">
 				{
 					store.contactos.map((contactos)=>(
-					<Contacto key={contactos._id} name={contactos.name}  address={contactos.address} telephone={contactos.telephone} email={''} photo={''} onEdit={()=>{} } onDelete={()=>{}}/>	
+					<Contacto key={contactos._id || contactos.email } name={contactos.name}  address={contactos.address} telephone={contactos.telephone} email={contactos.email} photo={''} onEdit={()=> navigate(`/edit-contact/${contactos._id}`) } onDelete={()=>{}}/>	
 					))
 				}
 				
