@@ -5,7 +5,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 export const EditContact = ()=>{
     const {id} = useParams();
     const {store} = useGlobalReducer();
-    const selectContact = store.contactos.find(contact=>String(contact._id)=== String(id));
+    const selectContact = store.contactos.find(contact=>String(contact.id)=== String(id));
     
     const editContact = (body) =>{
         fetch(`https://playground.4geeks.com/contact/agendas/Tito/contacts/${id}`, {
