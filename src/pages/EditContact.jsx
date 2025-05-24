@@ -29,7 +29,7 @@ export const EditContact = ()=>{
             title={'Editar contacto'} 
             storeName = {selectContact.name}
             storeAddress = {selectContact.address}
-            storeTelephone = {selectContact.telephone}
+            storePhone = {selectContact.phone}
             storeEmail = {selectContact.email}
             onSubmit ={editContact}/>
         </div>

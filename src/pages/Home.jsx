@@ -36,7 +36,7 @@ export const Home = () => {
 			<div className="d-flex flex-column justify-content-center align-items-center">
 				{
 					store.contactos.map((contactos)=>(
-					<Contacto key={contactos._id || contactos.email } name={contactos.name}  address={contactos.address} telephone={contactos.telephone} email={contactos.email} photo={''} onEdit={()=> navigate(`/edit-contact/${contactos._id}`) } onDelete={()=>{}}/>	
+					<Contacto key={contactos._id || contactos.email } name={contactos.name}  address={contactos.address} phone={contactos.phone} email={contactos.email} photo={''} onEdit={()=> navigate(`/edit-contact/${contactos._id}`) } onDelete={()=>{}}/>	
 					))
 				}
 				

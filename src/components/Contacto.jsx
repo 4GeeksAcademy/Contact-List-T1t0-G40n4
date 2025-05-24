@@ -1,4 +1,4 @@
-export const Contacto = ({name, address, telephone, email, photo , onEdit, onDelete}) => {
+export const Contacto = ({name, address, phone, email, photo , onEdit, onDelete}) => {
 
     return (
         <div className="card mb-3" style={{width: 540}}>
@@ -10,9 +10,9 @@ export const Contacto = ({name, address, telephone, email, photo , onEdit, onDel
                     <div className="card-body">
                         <h5 className="card-title text-start">{name}</h5>
                         <p className="card-text text-start">{address}</p>
-                        <p className="card-text text-start">{telephone}</p>
-                        <p className="card-text text start"><small >{email}</small></p>
-                        <div>
+                        <p className="card-text text-start">{phone}</p>
+                        <p className="card-text text-start"><small >{email}</small></p>
+                        <div className="text-start">
                                <button className="btn btn-secondary" onClick={()=>onEdit()}> 
                                 Edit
                                 </button> 
